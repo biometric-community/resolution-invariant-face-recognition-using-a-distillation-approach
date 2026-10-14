@@ -1,0 +1,38 @@
+paper:
+  slug: resolution-invariant-face-recognition-using-a-distillation-approach
+  title: "Resolution-Invariant Face Recognition Using a Distillation Approach"
+data:
+  celeba_root: ../../datasets/celeba/extracted/celeba
+  lfw_root: ../../datasets/lfw
+  root: ../../datasets/celeba/extracted/celeba
+  train_ratio: 0.7
+  max_images: null
+model:
+  image_size: 112
+  embed_dim: 512
+  pretrained_backbone: true
+  lr_scales: [1.0, 0.5, 0.25]
+train:
+  protocol: full
+  seed: 42
+  num_workers: 4
+  batch_size: 64
+  teacher_epochs: 8
+  student_epochs: 12
+  optimizer: sgd
+  lr: 0.1
+  momentum: 0.9
+  weight_decay: 0.0005
+  kl_temp: 4.0
+  kl_weight: 1.0
+  ce_weight: 1.0
+eval:
+  batch_size: 128
+  max_lfw_pairs: null
+  eval_scales: [1.0, 0.5, 0.25]
+paths:
+  checkpoint_dir: outputs/checkpoints/full
+  log_dir: outputs/logs/full
+  pred_dir: outputs/predictions/full
+  figure_dir: outputs/figures/full
+device: cuda
