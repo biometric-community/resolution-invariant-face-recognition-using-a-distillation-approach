@@ -1,0 +1,13 @@
+# Khalid, Awais, Feng, Chan, Farooq, Akbari & Kittler, "Resolution Invariant Face Recognition
+# Using a Distillation Approach", IEEE TBIOM 2(4), 2020, doi:10.1109/TBIOM.2020.3007356.
+# The paper is closed access and no abstract was available, so the checks follow the title
+# and the method this repo states it implements (README: HR teacher, HR/LR student, shared
+# Softmax, KL distillation). No published values are recorded.
+source: doi:10.1109/TBIOM.2020.3007356
+
+# Resolution invariance: the student's accuracy should barely move from HR to the lowest
+# resolution, and it should not give up HR accuracy to get there.
+invariance_tolerance_pp: 1.0
+
+# A working recogniser; LFW accuracy of 90% is a loose floor.
+clean_lfw_accuracy_floor: 90.0
